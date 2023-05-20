@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container mt-5">
+    <center>
+        <h1>Update Stock</h1>
+    </center>
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            {% if msg %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Success</h4>
+                    <p>Medicine Updated</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <p> {{en.name.name}}</p>
+                <div class="mb-3">
+
+                    <label class="form-label">Quantity</label>
+                    <input type="text" class="form-control" name="qty" value={{en.qty}}>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Expiry- {{en.expiry}}</label>
+                    <input type="date" class="form-control" name="exp">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+      
+
+</div>
+{% endblock body %}

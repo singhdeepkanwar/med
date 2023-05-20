@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container mt-5">
+    <center>
+        <h1>Delete Medicine</h1>
+    </center>
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            {% if msg %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Success</h4>
+                    <p>Medicine Deleted</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <select name='id' id="" class="form-control">
+                        <option value="" disabled hidden selected >Select Medicine</option>
+                        {% for i in m %}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+               
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+      
+
+</div>
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col mt-4"><br>
+            <a href="addnewmed/"><button class="btn btn-primary">Add New Med</button></a>
+            <a href="schedule/"><button class="btn btn-primary">View Schedule</button></a>
+            <br>
+            <br>
+            <a href="deletemed/" class="mt-2"><button class="btn btn-danger">Delete Medicine</button></a>
+        </div>
+        <div class="col">
+            <h1 class="mt-5">Med Inventory</h1>
+        </div>
+        <div class="col mt-5">
+            <a href="addstock/"><button class="btn btn-primary">Add Stock</button></a>
+
+        </div>
+    </div>
+    <center>
+
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Stk. Days</th>
+                <th>Expiry</th>
+            </tr>
+            {% for i in en %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.qty}}</td>
+                <td>{{i.stkdays}}</td>
+                <td><a href="meddetail/{{i.id}}">Details</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+</div>
+
+
+{% endblock body %}

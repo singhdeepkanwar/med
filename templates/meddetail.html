@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col mt-4"><br>
+            {% comment %} <a href="addnewmed/"><button class="btn btn-primary">Add New Med</button></a>
+            <a href="schedule/"><button class="btn btn-primary">View Schedule</button></a> {% endcomment %}
+        </div>
+        <div class="col">
+            <h1 class="mt-5">Med Inventory</h1>
+        </div>
+        <div class="col mt-5">
+            {% comment %} <a href="updatemed/"><button class="btn btn-primary">Update Stock</button></a>
+            <a href="addstock/"><button class="btn btn-primary">Add Stock</button></a> {% endcomment %}
+
+        </div>
+    </div>
+    <center>
+
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>Sr. No.</th>
+              
+                <th>Quantity</th>
+            
+                <th>Expiry</th>
+
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for i in en %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.qty}}</td>
+                <td>{{i.expiry}}</td>
+                <td><a href="/updatestock/{{i.id}}/{{id}}">Update</a></td>
+                <td><a href="/deletexp/{{i.id}}/{{id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+</div>
+
+
+{% endblock body %}

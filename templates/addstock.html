@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container mt-5">
+    <center>
+        <h1>Add Stock</h1>
+    </center>
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            {% if msg %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Success</h4>
+                    <p>Stock Added</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <select name='id' id="" class="form-control">
+                        <option value="" disabled hidden selected >Select Medicine</option>
+                        {% for i in m %}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+                    <input type="text" class="form-control" name="qty">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Expiry</label>
+                    <input type="date" class="form-control" name="exp">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+      
+
+</div>
+{% endblock body %}

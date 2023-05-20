@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-5">
+    <center>
+        <h1>Add New Med</h1>
+    </center>
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            {% if msg %}
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Success</h4>
+                    <p>Medicine Added</p>
+                </div>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Med per Strip</label>
+                    <input type="text" class="form-control" name="medperstrip">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Repeat per day</label>
+                    <input type="text" class="form-control" name="repday">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+      
+
+</div>
+{% endblock body %}
